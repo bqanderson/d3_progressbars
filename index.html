@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="pbApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing ng Knobs</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- Vendor JS Files -->
+    <script src="vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.min.js"></script>
+
+    <!-- Custom JS Files -->
+    <script src="scripts/ng-knob.js" charset="utf-8"></script>
+    <script src="scripts/pbApp.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="knobCtrl1 as kc1">
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Testing NG Knobs</h2>
+        <p>
+          {{ 3 + 3 }}
+        </p>
+      </div>
+      <div class="panel-body text-center">
+        <ui-knob value="kc1.phaseOneValue" options="kc1.phaseOneOptions"></ui-knob>
+        <div ng-repeat="mileStone in kc1.mileStones track by $index">
+          <p>
+            {{mileStone.subText.text}}
+            DEBUG:: {{mileStone}}
+          </p>
+          <ui-knob value="mileStone.value" options="mileStone"></ui-knob>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label>Milestone I</label>
+        <input class="form-control" type="text" ng-model="kc1.value2" />
+      </div> -->
+    </div>
+  </body>
+</html>
